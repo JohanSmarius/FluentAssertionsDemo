@@ -7,4 +7,6 @@ public class Child
     public int Age { get; set; }
     
     public Gift Gift { get; set; }
+
+    public Gender Gender { get; set; }
 }
