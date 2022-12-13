@@ -1,8 +1,8 @@
 using System.Runtime.Serialization;
 
-namespace Domain.Services;
+namespace Domain;
 
-public class GiftException : DomainException
+public class GiftException : Exception
 {
     public GiftException(string message) : base(message)
     {

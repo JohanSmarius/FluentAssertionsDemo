@@ -2,11 +2,11 @@ namespace Domain;
 
 public class Gift
 {
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     public decimal Price { get; set; }
     public int ProductionDuration { get; private set; }
-    
+
     public Gift(int productionDuration)
     {
         ProductionDuration = productionDuration;
@@ -14,9 +14,10 @@ public class Gift
 
     public DateTime ReadyAt
     {
-        get
-        {
-            return DateTime.Today.AddDays(ProductionDuration);
-        }
+        get { return DateTime.Today.AddDays(ProductionDuration); }
     }
+
+
+
+
 }

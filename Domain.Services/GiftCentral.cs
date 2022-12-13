@@ -29,10 +29,7 @@ public class GiftCentral
         }
         
         // Check for budget
-        if (family.Budget < family.Budget + gift.Price)
-        {
-            throw new GiftException("Gift is too expensive for the budget");
-        }
+         
         
         // Check for production option
         if (gift.ReadyAt > new DateTime(DateTime.Today.Year, 12, 25))
