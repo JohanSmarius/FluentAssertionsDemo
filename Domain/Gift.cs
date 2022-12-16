@@ -12,12 +12,6 @@ public class Gift
         ProductionDuration = productionDuration;
     }
 
-    public DateTime ReadyAt
-    {
-        get { return DateTime.Today.AddDays(ProductionDuration); }
-    }
-
-
-
-
+    public DateTime ReadyAt => DateTime.Today.AddDays(ProductionDuration);
 }
+

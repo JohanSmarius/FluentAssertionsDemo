@@ -6,6 +6,17 @@ namespace DomainXUnit.Tests;
 public class ChildTests
 {
     [Fact]
+    public void Given_Gift_Added_To_Child_HasGift_Should_Return_True_Normal_Way()
+    {
+        var sut = new Child() {Age = 10, Gender = Gender.Female, Gift = new Gift(1), Name = "Iris"};
+
+        var hasGift = sut.HasGift();
+        
+        Assert.True(hasGift, "Gift has been added" );
+    }
+
+    
+    [Fact]
     public void Given_Gift_Added_To_Child_HasGift_Should_Return_True()
     {
         var sut = new Child() {Age = 10, Gender = Gender.Female, Gift = new Gift(1), Name = "Iris"};
@@ -36,6 +47,19 @@ public class ChildTests
 
         sut.ToString().Should().StartWith("IRIS").And.NotStartWith("10").And.
             Contain("-", Exactly.Once()).And.EndWith("10");
+    }
+
+    [Fact]
+    public void Given_Name_And_Age_Assigned_To_String_Should_Return_Correct_Format_Standard_Method()
+    {
+        var sut = new Child() {Age = 10, Gender = Gender.X, Name = "Iris"};
+        var name = sut.ToString();
+        
+        Assert.StartsWith("IRIS", name);
+        Assert.EndsWith("10", name);
+        Assert.Contains("-", name);
+        var hypenCount = name.Count(c => c == '-');
+        Assert.Equal(1, hypenCount);
     }
     
     [Fact]

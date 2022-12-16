@@ -164,8 +164,10 @@ public class FamilyTests
         
         sut.AddChild(child);
 
+        // Act
         Action action = () => sut.AddGiftForChild(child, gift);
 
+        // Assert
         action.Should().Throw<GiftException>().WithMessage("Gift is too expensive");
 
         child.Gift.Should().BeNull();
